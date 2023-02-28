@@ -1,0 +1,57 @@
+#include<stdio.h>
+#include<stdlib.h>
+struct node
+{
+   struct node* llink;
+   int info;
+   struct node* rlink;
+};
+typedef struct node* NODE;
+NODE getnode()
+{
+    NODE x;
+    x=(NODE) malloc (sizeof(struct node));
+    if(x==NULL)
+    exit(0);
+    return x;
+
+}
+
+NODE insert_bst(NODE root,int elem)
+{
+    NODE temp;
+   NODE cur,prev;
+    temp=getnode();
+    temp->llink=temp->rlink=NULL;
+    temp->info=elem;
+    if(root==NULL)
+    {
+    return temp;
+    }
+    cur=root;
+    while(cur!=NULL){
+        if(cur->info>elem)
+            cur=cur->llink;
+        else 
+            cur=cur->rlink;
+            if(prev->info>elem)
+            prev->llink=temp;
+            else
+            prev->rlink=temp;
+            return root;
+
+    }
+}
+int main()
+{
+    NODE root,cur,prev;
+    int elem;
+    printf("enter element\n");
+    scanf("%d",&elem);
+    root=NULL;
+    insert_bst(root,elem);
+
+}
+
+
+
